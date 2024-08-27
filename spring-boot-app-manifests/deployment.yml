@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+  lables:
+    app: spring-boot-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      lables:
+        app: spring-boot-app
+    spec:
+      containers:
+      - name: spring-boot-app
+        image: furquanmirza/java-maven-project:v1
+        ports:
+        - containerPort: 8080
